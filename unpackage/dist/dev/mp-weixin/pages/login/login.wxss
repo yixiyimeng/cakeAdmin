@@ -1,0 +1,146 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*登录*/
+.mt20 {
+	margin-top: 40rpx;
+}
+.mt15 {
+	margin-top: 30rpx;
+}
+.login {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background: #f9f1ee no-repeat top center;
+	background-size: 100% auto;
+}
+.login ._a {
+	color: #ff5454;
+	font-size: 30rpx;
+}
+.loginbox {
+	width: 480rpx;
+	margin: 0 auto;
+	padding-top: 80rpx;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	top: 80rpx;
+}
+.loginbox ._h4 {
+	text-align: center;
+	color: #049588;
+	font-size: 36rpx;
+	margin-bottom: 100rpx;
+}
+.loginbox .tip {
+	color: #fa036b;
+	font-size: 30rpx;
+	text-align: center;
+	margin-top: 80rpx;
+}
+.loginbox form {}
+.loginbox .group {
+	height: 80rpx;
+	font-size: 30rpx;
+}
+.loginbox .group ._i {
+	display: block;
+	height: 20px;
+	width: 36px;
+}
+.loginbox .group ._i image {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.loginbox .group input {
+	background: none;
+	border: none;
+	width: 100%;
+	height: 100%;
+	border-radius: 10rpx;
+	border: 1px solid #049588;
+	background: #fff;
+	margin-left: 10rpx;
+	padding-left: 20rpx;
+}
+.loginbox .submitBtn {
+	display: block;
+	width: 100%;
+	background: #049588;
+	color: #fff;
+	line-height: 80rpx;
+	height: 80rpx;
+	text-align: center;
+	border-radius: 10rpx;
+	border: none;
+	margin-top: 40rpx;
+	font-size: 30rpx;
+}
+
