@@ -160,7 +160,9 @@
 
 	.list {
 		margin-top: 20upx;
-
+overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		height: 200upx;
 		.item {
 			padding: 0 25upx;
 			width: 690upx;

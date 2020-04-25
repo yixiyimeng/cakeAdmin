@@ -7,7 +7,7 @@
 		"urlCheck": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.2",
+	"libVersion": "2.7.0",
 	"appid": "wx8d63a38af28e4395",
 	"projectname": "cakeAdmin",
 	"simulatorType": "wechat",
@@ -37,16 +37,9 @@
 			"current": -1,
 			"list": [
 				{
-					"id": -1,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/money/money",
-					"pathName": "pages/money/money",
+					"id": 0,
+					"name": "pages/addorder/addorder",
+					"pathName": "pages/addorder/addorder",
 					"query": "",
 					"scene": null
 				}

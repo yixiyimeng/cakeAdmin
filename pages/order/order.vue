@@ -2,84 +2,67 @@
 	<view class="pageview flex flex-v">
 		<view class="filterbar">
 			<div class="flex align-center justify-between">
-				<view class="title">起止时间:</view>
-				<picker mode="date" :value="date" start="2015-09-01" end="2020-09-01" @change="DateChange">
-					<view class="picker inputbox">
-						{{date}}
-					</view>
-				</picker>
-				<text>—</text>
-				<picker mode="time" :value="time" start="09:01" end="21:01" @change="TimeChange">
-					<view class="picker inputbox">
-						{{time}}
-					</view>
-				</picker>
+				<view class="title">订单编号:</view>
+				<input class="inputbox flex-sub" type="text" placeholder="请输入订单编号">
 
 			</div>
 			<div class="flex align-center mt20">
-				<view class="title">姓名:</view>
-				<input class="inputbox flex-sub" type="text" placeholder="请输入姓名">
+				<view class="title">手机号码:</view>
+				<input class="inputbox flex-sub" type="text" placeholder="请输入手机号码">
 
 			</div>
-			<view class="btn">查询</view>
+			<div class="flex align-center mt20">
+				<view class="title">订单状态:</view>
+				<picker class="flex-sub" @change="PickerChange" :value="state" :range="picker" range-key='name'>
+					<view class="picker inputbox">
+						{{picker[state].name}}
+					</view>
+				</picker>
+			</div>
+			<view class="flex justify-between">
+				<view class="btn">查询</view>
+				<view class="btn addbtn">添加</view>
+			</view>
 		</view>
-		<view class="flex-v list">
+		<view class="flex-sub list">
 			<view class="item">
 				<view class="flex item-hd justify-between">
-					<text>张三</text>
-					<text class="ordernum">12233444</text>
+					<text>张三(13720257591)</text>
+					<text class="ordernum">NO.12233444</text>
 				</view>
 				<view class="flex flex-wrap mt20">
-					<view class="w50">
-						<text class="title">运费:</text>
-						<text>10</text>
+					<view class="imgbox">
+						<image src="../../static/images/1.jpg" mode="widthFix"></image>
 					</view>
-					<view class="w50">
-						<text class="title">大件补偿:</text>
-						<text>10</text>
+					<view class="imgbox">
+						<image src="../../static/images/1.jpg" mode="widthFix"></image>
 					</view>
-					<view class="w50 mt20">
-						<text class="title">奖励:</text>
-						<text>10</text>
-					</view>
-					<view class="w50 mt20">
-						<text class="title">处罚:</text>
-						<text>10</text>
+					<view class="imgbox">
+						<image src="../../static/images/1.jpg" mode="widthFix"></image>
 					</view>
 				</view>
-				<view class="item-ft mt20 flex justify-between">
-					<view><text>合计</text>
-						<text class="price">10</text></view>
+				<view class="item-ft mt20 flex justify-between align-center">
+					<!-- <view><text>总金额</text>
+						<text class="price">10</text></view> -->
 					<text class="state">已支付</text>
+					<view class="btn">查看</view>
 				</view>
 			</view>
 			<view class="item">
 				<view class="flex item-hd justify-between">
-					<text>张三</text>
-					<text class="ordernum">12233444</text>
+					<text>张三(13720257591)</text>
+					<text class="ordernum">NO.12233444</text>
 				</view>
 				<view class="flex flex-wrap mt20">
-					<view class="w50">
-						<text class="title">运费:</text>
-						<text>10</text>
-					</view>
-					<view class="w50">
-						<text class="title">大件补偿:</text>
-						<text>10</text>
-					</view>
-					<view class="w50 mt20">
-						<text class="title">奖励:</text>
-						<text>10</text>
-					</view>
-					<view class="w50 mt20">
-						<text class="title">处罚:</text>
-						<text>10</text>
+					<view class="imgbox">
+						<image src="../../static/images/1.jpg" mode="widthFix"></image>
 					</view>
 				</view>
-				<view class="item-ft mt20 flex justify-between">
-					<view><text>合计</text>
-						<text class="price">10</text></view>
+				<view class="item-ft mt20 flex justify-between align-center">
+					<!-- <view><text>总金额</text>
+						<text class="price">10</text></view> -->
 					<text class="state">已支付</text>
+					<view class="btn">查看</view>
 				</view>
 			</view>
 		</view>
@@ -91,7 +74,32 @@
 		data() {
 			return {
 				date: '请选择日期',
-				time: '请选择时间段'
+				time: '请选择时间段',
+				state: 0,
+				picker: [{
+						id: 0,
+						name: '全部'
+					},
+					{
+						id: 1,
+						name: '取消'
+					},
+					{
+						id: 2,
+						name: '支付完成'
+					}, {
+						id: 2,
+						name: '新建'
+					},
+					{
+						id: 1,
+						name: '发货'
+					},
+					{
+						id: 1,
+						name: '完成'
+					}
+				]
 			};
 		},
 		methods: {
@@ -106,7 +114,8 @@
 </script>
 
 <style lang="scss">
-	page {
+	page,
+	.pageview {
 		height: 100%;
 		width: 100%;
 		overflow: hidden;
@@ -136,12 +145,11 @@
 			border-radius: 8upx;
 			line-height: 70upx;
 			height: 70upx;
-			min-width: 250upx;
+			width: 100%;
 			padding-left: 20upx;
 		}
 
 		.btn {
-			width: 600upx;
 			height: 80upx;
 			background: #19A967;
 			box-shadow: 0px 9upx 20upx 0px rgba(25, 169, 103, 0.58);
@@ -151,10 +159,21 @@
 			text-align: center;
 			line-height: 80upx;
 			font-size: 30upx;
+			width: 250upx;
+
+			&.addbtn {
+
+				margin-left: 20upx;
+				background: #FB595F;
+				box-shadow: 0px 9upx 20upx 0px rgba(251, 89, 95, 0.17);
+			}
 		}
 	}
 
 	.list {
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+		height: 200upx;
 		margin-top: 20upx;
 
 		.item {
@@ -197,9 +216,32 @@
 				margin-right: 10upx;
 			}
 
-			.w50 {
-				width: 50%;
+			.btn {
+				width: 134upx;
+				height: 59upx;
+				background: rgba(25, 169, 103, 1);
+				border-radius: 8upx;
+				color: #fff;
+				font-size: 26upx;
+				text-align: center;
+				line-height: 59upx;
 			}
+
+		}
+	}
+
+	.imgbox {
+		width: 30%;
+		border-radius: 10upx;
+		overflow: hidden;
+
+		image {
+			display: block;
+			width: 100%;
+		}
+
+		&+.imgbox {
+			margin-left: 5%;
 		}
 	}
 </style>

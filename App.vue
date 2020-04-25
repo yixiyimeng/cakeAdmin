@@ -12,21 +12,21 @@
 						Vue.prototype.CustomBar = e.statusBarHeight + 45;
 					};
 					// #endif
-	
+
 					// #ifdef MP-WEIXIN
 					Vue.prototype.StatusBar = e.statusBarHeight;
 					let custom = wx.getMenuButtonBoundingClientRect();
 					Vue.prototype.Custom = custom;
 					Vue.prototype.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
 					// #endif		
-	
+
 					// #ifdef MP-ALIPAY
 					Vue.prototype.StatusBar = e.statusBarHeight;
 					Vue.prototype.CustomBar = e.statusBarHeight + e.titleBarHeight;
 					// #endif
 				}
 			})
-	
+
 			Vue.prototype.ColorList = [{
 					title: '嫣红',
 					name: 'red',
@@ -103,7 +103,7 @@
 					color: '#ffffff'
 				},
 			]
-	
+
 		},
 		onShow: function() {
 			console.log('App Show')
@@ -111,7 +111,7 @@
 		onHide: function() {
 			console.log('App Hide')
 		}
-	
+
 	}
 </script>
 
@@ -119,21 +119,24 @@
 	/*每个页面公共css */
 	/*flex 布局*/
 	@import "colorui/main.css";
+	@import "colorui/icon.css";
+
 	.flex {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
 		display: flex;
 	}
+
 	/*垂直显示*/
-	
+
 	.flex-v {
 		-webkit-box-orient: vertical;
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
 		flex-direction: column;
 	}
-	
+
 	.flex-1 {
 		-webkit-box-flex: 1;
 		-webkit-flex: 1;
@@ -141,41 +144,46 @@
 		flex: 1;
 		overflow: hidden
 	}
+
 	/*垂直对其方式*/
-	
+
 	.flex-align-center {
 		-webkit-box-align: center;
 		-webkit-align-items: center;
 		-ms-flex-align: center;
 		align-items: center;
 	}
+
 	/*左右居中*/
-	
+
 	.flex-pack-center {
 		-webkit-box-pack: center;
 		-webkit-justify-content: center;
 		-ms-flex-pack: center;
 		justify-content: center;
 	}
+
 	/*两端对齐*/
-	
+
 	.flex-pack-justify {
 		-webkit-box-pack: justify;
 		-webkit-justify-content: space-between;
 		-ms-flex-pack: justify;
 		justify-content: space-between;
 	}
-	
+
 	.ml10 {
 		margin-left: 10rpx;
 	}
-	
+
 	.mt10 {
 		margin-top: 10rpx;
-	}.mt20 {
+	}
+
+	.mt20 {
 		margin-top: 20rpx;
 	}
-	
+
 	.ml20 {
 		margin-left: 20rpx;
 	}

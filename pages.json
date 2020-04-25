@@ -28,7 +28,11 @@
 				"navigationBarTitleText": "预约订单"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/addorder/addorder",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "核桃妹的妈妈",
