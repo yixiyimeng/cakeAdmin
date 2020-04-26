@@ -26,9 +26,9 @@
 	background: #fff;
 	overflow: hidden;
 	padding-top: 12px;
+	width: 100%;
 }
 .menulist ._li {
-	float: left;
 	width: 33.33%;
 	text-align: center;
 	margin-bottom: 15px;

@@ -7,11 +7,9 @@
 		"urlCheck": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.0",
+	"libVersion": "2.9.2",
 	"appid": "wx8d63a38af28e4395",
 	"projectname": "cakeAdmin",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -38,8 +36,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/addorder/addorder",
-					"pathName": "pages/addorder/addorder",
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
 					"query": "",
 					"scene": null
 				}

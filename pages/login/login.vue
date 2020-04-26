@@ -5,7 +5,7 @@
 			<form>
 				<div class="group flex flex-align-center">
 					<label>账户</label>
-					<input class="flex-1" type="text" name="" id="" value="" placeholder="请输入手机号码" v-model='phone' />
+					<input class="flex-1" type="text" name="" id="" value="" placeholder="请输入账号" v-model='phone' />
 				</div>
 				<div class="group flex flex-align-center mt20">
 					<label>密码</label>
@@ -19,7 +19,10 @@
 </template>
 
 <script>
-	
+	import {
+		api,
+		postajax
+	} from '@/utils/api.js'
 	export default {
 
 		data() {
@@ -39,22 +42,21 @@
 					username: $me.phone,
 					password: $me.pwd
 				}
-				// login(param).then(da => {
-				// 	if(da.code == 200) {
-				// 		wx.switchTab({
-				// 			url: '/pages/index/main'
-				// 		});
-				// 		var token = da.data.token;
-				// 		wx.setStorageSync("accessToken", token);
-				// 		wx.setStorageSync('allAuth',da.data.allAuth);
-				// 		wx.setStorageSync('myAuth',da.data.myAuth)
-				// 	} else {
-				// 		wx.showToast({
-				// 			title: da.msg,
-				// 			icon: 'none'
-				// 		})
-				// 	}
-				// })
+				postajax(api.login, param).then(da => {
+					console.log(da)
+					if (da.code == 200) {
+						wx.redirectTo({
+							url: '/pages/index/index'
+						});
+						wx.setStorageSync("userinfo", da.data);
+					} else {
+						wx.showToast({
+							title: da.msg,
+							icon: 'none'
+						})
+					}
+				})
+
 			}
 		}
 	}
@@ -62,15 +64,15 @@
 
 <style>
 	/*登录*/
-	
+
 	.mt20 {
 		margin-top: 40rpx;
 	}
-	
+
 	.mt15 {
 		margin-top: 30rpx;
 	}
-	
+
 	.login {
 		position: fixed;
 		height: 100%;
@@ -80,12 +82,12 @@
 		background: #f9f1ee no-repeat top center;
 		background-size: 100% auto;
 	}
-	
+
 	.login a {
 		color: #ff5454;
 		font-size: 30rpx;
 	}
-	
+
 	.loginbox {
 		width: 480rpx;
 		margin: 0 auto;
@@ -95,40 +97,40 @@
 		transform: translateX(-50%);
 		top: 80rpx;
 	}
-	
+
 	.loginbox h4 {
 		text-align: center;
 		color: #049588;
 		font-size: 36rpx;
 		margin-bottom: 100rpx;
 	}
-	
+
 	.loginbox .tip {
 		color: #fa036b;
 		font-size: 30rpx;
 		text-align: center;
 		margin-top: 80rpx;
 	}
-	
+
 	.loginbox form {}
-	
+
 	.loginbox .group {
 		height: 80rpx;
 		font-size: 30rpx;
 	}
-	
+
 	.loginbox .group i {
 		display: block;
 		height: 20px;
 		width: 36px;
 	}
-	
+
 	.loginbox .group i image {
 		display: block;
 		width: 100%;
 		height: 100%;
 	}
-	
+
 	.loginbox .group input {
 		background: none;
 		border: none;
@@ -140,7 +142,7 @@
 		margin-left: 10rpx;
 		padding-left: 20rpx;
 	}
-	
+
 	.loginbox .submitBtn {
 		display: block;
 		width: 100%;

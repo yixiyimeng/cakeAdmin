@@ -3,12 +3,12 @@
 		<view class="filterbar">
 			<div class="flex align-center justify-between">
 				<view class="title">订单编号:</view>
-				<input class="inputbox flex-sub" type="text" placeholder="请输入订单编号">
+				<input class="inputbox flex-sub" type="text" placeholder="请输入订单编号" v-model.layz="order_no">
 
 			</div>
 			<div class="flex align-center mt20">
 				<view class="title">手机号码:</view>
-				<input class="inputbox flex-sub" type="text" placeholder="请输入手机号码">
+				<input class="inputbox flex-sub" type="text" placeholder="请输入手机号码" v-model.layz="rec_phone">
 
 			</div>
 			<div class="flex align-center mt20">
@@ -20,12 +20,36 @@
 				</picker>
 			</div>
 			<view class="flex justify-between">
-				<view class="btn">查询</view>
-				<view class="btn addbtn">添加</view>
+				<view class="btn" @tap="downCallback">查询</view>
+				<navigator url="/pages/addorder/addorder" class="btn addbtn">添加</navigator>
 			</view>
 		</view>
 		<view class="flex-sub list">
-			<view class="item">
+			<mescroll-uni :fixed="false" ref="mescrollRef" @init="mescrollInit" @down="downCallback" @up="upCallback">
+				<view class="item" v-for="(item,index) in list" :key="index">
+					<view class="flex item-hd justify-between">
+						<text>{{item.rec_name}}({{item.rec_phone}})</text>
+						<text class="ordernum">{{item.order_no}}</text>
+					</view>
+					<view class="flex flex-wrap mt20">
+						<view class="imgbox" v-for="(subitem,subindex) in item.info.img" :key="subindex">
+							<image :src="subitem" mode="widthFix"></image>
+						</view>
+						<!-- <view class="imgbox">
+							<image src="../../static/images/1.jpg" mode="widthFix"></image>
+						</view>
+						<view class="imgbox">
+							<image src="../../static/images/1.jpg" mode="widthFix"></image>
+						</view> -->
+					</view>
+					<view class="item-ft mt20 flex justify-between align-center">
+						<!-- <view><text>总金额</text>
+						<text class="price">10</text></view> -->
+						<text class="state">{{item.kitchen_state}}</text>
+						<view class="btn">查看</view>
+					</view>
+				</view>
+				<!-- <view class="item">
 				<view class="flex item-hd justify-between">
 					<text>张三(13720257591)</text>
 					<text class="ordernum">NO.12233444</text>
@@ -34,74 +58,60 @@
 					<view class="imgbox">
 						<image src="../../static/images/1.jpg" mode="widthFix"></image>
 					</view>
-					<view class="imgbox">
-						<image src="../../static/images/1.jpg" mode="widthFix"></image>
-					</view>
-					<view class="imgbox">
-						<image src="../../static/images/1.jpg" mode="widthFix"></image>
-					</view>
 				</view>
 				<view class="item-ft mt20 flex justify-between align-center">
-					<!-- <view><text>总金额</text>
-						<text class="price">10</text></view> -->
 					<text class="state">已支付</text>
 					<view class="btn">查看</view>
 				</view>
-			</view>
-			<view class="item">
-				<view class="flex item-hd justify-between">
-					<text>张三(13720257591)</text>
-					<text class="ordernum">NO.12233444</text>
-				</view>
-				<view class="flex flex-wrap mt20">
-					<view class="imgbox">
-						<image src="../../static/images/1.jpg" mode="widthFix"></image>
-					</view>
-				</view>
-				<view class="item-ft mt20 flex justify-between align-center">
-					<!-- <view><text>总金额</text>
-						<text class="price">10</text></view> -->
-					<text class="state">已支付</text>
-					<view class="btn">查看</view>
-				</view>
-			</view>
+			</view> -->
+			</mescroll-uni>
 		</view>
 	</view>
 </template>
 
 <script>
+	import {
+		api,
+		postajax
+	} from '@/utils/api.js'
+	import MescrollMixin from "@/components/mescroll-uni/mescroll-mixins.js";
+
 	export default {
 		data() {
 			return {
 				date: '请选择日期',
 				time: '请选择时间段',
 				state: 0,
+				order_no: '',
+				rec_phone: '',
 				picker: [{
-						id: 0,
+						id: '1,2,3,4',
 						name: '全部'
 					},
 					{
-						id: 1,
+						id: '0',
 						name: '取消'
 					},
 					{
-						id: 2,
-						name: '支付完成'
-					}, {
-						id: 2,
+						id: '1',
 						name: '新建'
+					}, {
+						id: '2',
+						name: '支付完成'
 					},
 					{
-						id: 1,
+						id: '3',
 						name: '发货'
 					},
 					{
-						id: 1,
+						id: '4',
 						name: '完成'
 					}
-				]
+				],
+				list: []
 			};
 		},
+		mixins: [MescrollMixin],
 		methods: {
 			TimeChange(e) {
 				this.time = e.detail.value
@@ -109,6 +119,43 @@
 			DateChange(e) {
 				this.date = e.detail.value
 			},
+			getorderlist(page, limit) {
+				postajax(api.getorderlist, {
+					order_no: this.order_no,
+					rec_phone: this.rec_phone,
+					page: page,
+					limit: limit,
+					order_type: '1,3,4',
+					service_order_flag: 1,
+					state: this.picker[this.state].id
+				}).then(res => {
+					let da=res.param;
+					if (da.code == 200) {
+						let curPageData = da.data.list;
+						/* info中的图片 */
+						if(curPageData.length>0){
+							curPageData=curPageData.map(item=>{
+								item.info=JSON.parse(item.info);
+								return item
+							})
+						}
+						if (page == 1) this.list = []; //如果是第一页需手动置空列表
+						this.list = this.list.concat(curPageData);
+						this.mescroll.endBySize(curPageData.length, da.data.totalCount);
+						console.log(this.list)
+					}
+				})
+			},
+		
+			upCallback(page) {
+				let pageNum = page.num; // 页码, 默认从1开始
+				let pageSize = page.size; // 页长, 默认每页10条
+				this.getorderlist(pageNum, pageSize);
+			},
+			PickerChange(e){
+				console.log(e)
+				this.state=e.detail.value
+			}
 		}
 	}
 </script>

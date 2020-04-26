@@ -1,14 +1,15 @@
 <template>
 	<view class="content">
-		<ul class="menulist">
+		<ul class="menulist flex flex-wrap">
+			<!-- v-if="userinfo.position==5||userinfo.position==9" -->
 			<li>
-				<navigator url="/pages/ordermenu/main">
+				<navigator url="/pages/order/order">
 					<div><img src="/static/images/3.png" mode='aspectFit' /></div>
 					<p>预约订单</p>
 				</navigator>
 			</li>
-			<li>
-				<navigator url="/pages/reportlist/main">
+			<li v-if="userinfo.position==4">
+				<navigator url="/pages/money/money">
 					<div><img src="/static/images/4.png" mode='aspectFit' /></div>
 					<p>快递工资</p>
 				</navigator>
@@ -33,11 +34,12 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				userinfo: {}
 			}
 		},
 		onLoad() {
-
+			this.userinfo = uni.getStorageSync('userinfo')
+		console.log(this.userinfo)
 		},
 		methods: {
 
@@ -57,17 +59,17 @@
 		padding-top: 20px;
 	}
 
-	
+
 
 	.menulist {
 		margin-top: 20px;
 		background: #fff;
 		overflow: hidden;
 		padding-top: 12px;
+		width: 100%;
 	}
 
 	.menulist li {
-		float: left;
 		width: 33.33%;
 		text-align: center;
 		margin-bottom: 15px;
