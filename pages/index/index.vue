@@ -15,13 +15,13 @@
 				</navigator>
 			</li>
 			<li>
-				<navigator url="/pages/video/main">
+				<navigator url="/pages/video/video">
 					<div><img src="/static/images/5.png" mode='aspectFit' /></div>
 					<p>发布实拍</p>
 				</navigator>
 			</li>
 			<li>
-				<navigator url="/pages/videolist/main">
+				<navigator url="/pages/video/video">
 					<div><img src="/static/images/6.png" mode='aspectFit' /></div>
 					<p>实拍管理</p>
 				</navigator>
@@ -39,7 +39,7 @@
 		},
 		onLoad() {
 			this.userinfo = uni.getStorageSync('userinfo')
-		console.log(this.userinfo)
+			console.log(this.userinfo)
 		},
 		methods: {
 

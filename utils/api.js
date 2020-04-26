@@ -19,18 +19,27 @@ export const api = {
 	getgoods:'/api/firm/product/index',
 	calc:'/api/firm/order/calc',
 	submit:'/api/firm/order/submit',
-	paid:'order/paid/'
+	paid:'order/paid/',
+	getvideolist:'/content/wechat_zoom/get',
+	deletevideo:'/content/wechat_zoom/delete/'
 	
 }
 
-export function getajax(url) {
-	return $http.get(url)
-}
+// export function getajax(url) {
+// 	return $http.get(url)
+// }
 export function postajax(url, params) {
 	params=params||{};
 	params.login_code = '5c906ce579857'
 	let myparams = JsontoForm(params);
+	console.log(myparams)
 	return $http.post(url, params)
+}
+export function getajax(url, params) {
+	params=params||{};
+	params.login_code = '5c906ce579857'
+	let myparams = JsontoForm(params);
+	return $http.get(url,myparams)
 }
 export default {
 	api,

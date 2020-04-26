@@ -49,7 +49,8 @@ page,
 }
 .filterbar .inputbox {
     border: 1px solid #eee;
-    border-radius: 8rpx;
+    -webkit-border-radius: 8rpx;
+            border-radius: 8rpx;
     line-height: 70rpx;
     height: 70rpx;
     width: 100%;
@@ -60,7 +61,8 @@ page,
     background: #19A967;
     -webkit-box-shadow: 0px 9rpx 20rpx 0px rgba(25, 169, 103, 0.58);
             box-shadow: 0px 9rpx 20rpx 0px rgba(25, 169, 103, 0.58);
-    border-radius: 12rpx;
+    -webkit-border-radius: 12rpx;
+            border-radius: 12rpx;
     margin: 20rpx auto 10rpx;
     color: #fff;
     text-align: center;
@@ -86,7 +88,8 @@ page,
     background: white;
     -webkit-box-shadow: 0px 4rpx 16rpx 0px #d5d5d5;
             box-shadow: 0px 4rpx 16rpx 0px #d5d5d5;
-    border-radius: 8rpx;
+    -webkit-border-radius: 8rpx;
+            border-radius: 8rpx;
     margin: 0 auto 10rpx;
     color: #454545;
     font-size: 26rpx;
@@ -118,7 +121,8 @@ page,
       width: 134rpx;
       height: 59rpx;
       background: #19a967;
-      border-radius: 8rpx;
+      -webkit-border-radius: 8rpx;
+              border-radius: 8rpx;
       color: #fff;
       font-size: 26rpx;
       text-align: center;
@@ -126,7 +130,8 @@ page,
 }
 .imgbox {
   width: 30%;
-  border-radius: 10rpx;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
   overflow: hidden;
 }
 .imgbox image {

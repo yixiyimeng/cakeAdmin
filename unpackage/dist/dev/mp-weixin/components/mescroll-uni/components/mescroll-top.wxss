@@ -56,7 +56,8 @@
 	bottom: 120rpx;
 	width: 72rpx;
 	height: auto;
-	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
 	opacity: 0;
 	-webkit-transition: opacity 0.5s;
 	-o-transition: opacity 0.5s;
@@ -65,8 +66,10 @@
 }
 /* 适配 iPhoneX */
 .mescroll-safe-bottom{
-	margin-bottom: calc(0px + constant(safe-area-inset-bottom)); /* window-bottom + 适配 iPhoneX */
-	margin-bottom: calc(0px + env(safe-area-inset-bottom));
+	margin-bottom: 0px;
+	margin-bottom: 0px; /* window-bottom + 适配 iPhoneX */
+	margin-bottom: 0px;
+	margin-bottom: 0px;
 }
 /* 显示 -- 淡入 */
 .mescroll-totop-in {

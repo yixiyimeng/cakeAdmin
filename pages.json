@@ -11,10 +11,7 @@
 			"style": {
 				"navigationBarTitleText": "核桃妹的妈妈"
 			}
-		}
-
-
-		, {
+		}, {
 			"path": "pages/video/video",
 			"style": {}
 		}, {
@@ -27,12 +24,11 @@
 			"style": {
 				"navigationBarTitleText": "预约订单"
 			}
+		}, {
+			"path": "pages/addorder/addorder",
+			"style": {}
 		}
-	    ,{
-            "path" : "pages/addorder/addorder",
-            "style" : {}
-        }
-    ],
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "核桃妹的妈妈",

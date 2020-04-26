@@ -7,9 +7,11 @@
 		"urlCheck": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.2",
+	"libVersion": "2.7.0",
 	"appid": "wx8d63a38af28e4395",
 	"projectname": "cakeAdmin",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -36,8 +38,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/order/order",
-					"pathName": "pages/order/order",
+					"name": "pages/video/video",
+					"pathName": "pages/video/video",
 					"query": "",
 					"scene": null
 				}
