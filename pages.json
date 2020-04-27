@@ -32,6 +32,10 @@
             "path" : "pages/addvideo/addvideo",
             "style" : {}
         }
+        ,{
+            "path" : "pages/orderdetails/orderdetails",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

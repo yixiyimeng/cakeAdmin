@@ -45,8 +45,8 @@
 					<view class="item-ft mt20 flex justify-between align-center">
 						<!-- <view><text>总金额</text>
 						<text class="price">10</text></view> -->
-						<text class="state">{{item.kitchen_state}}</text>
-						<view class="btn">查看</view>
+						<text class="state">{{item.state}}</text>
+						<view class="btn" @tap="showdetails(item)">查看</view>
 					</view>
 				</view>
 				<!-- <view class="item">
@@ -155,6 +155,12 @@
 			PickerChange(e){
 				console.log(e)
 				this.state=e.detail.value
+			},
+			showdetails(item){
+				var info=JSON.stringify(item)
+				uni.navigateTo({
+					url:'/pages/orderdetails/orderdetails?info='+info
+				})
 			}
 		}
 	}

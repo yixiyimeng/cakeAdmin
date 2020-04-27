@@ -10,8 +10,6 @@
 	"libVersion": "2.7.0",
 	"appid": "wx8d63a38af28e4395",
 	"projectname": "cakeAdmin",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
