@@ -77,7 +77,6 @@ page,
 .list {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  height: 200rpx;
   margin-top: 20rpx;
 }
 .list .item {

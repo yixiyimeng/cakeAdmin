@@ -226,7 +226,7 @@
 	.list {
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
-		height: 200upx;
+		// height: 200upx;
 		margin-top: 20upx;
 
 		.item {
