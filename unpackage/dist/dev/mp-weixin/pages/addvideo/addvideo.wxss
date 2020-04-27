@@ -1,0 +1,78 @@
+
+.txt {
+	font-size: 24rpx;
+	padding: 10rpx;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.imgbox {
+	background: #ebebeb;
+	padding: 20rpx;
+	overflow: hidden;
+}
+.imgbox>._div {
+	float: left;
+	margin: 10rpx;
+}
+.imgbox .img {
+	height: 140rpx;
+	width: 140rpx;
+	background: #fff;
+}
+.imgbox .video {
+	height: 140rpx;
+	width: 140rpx;
+	background: #000;
+	position: relative;
+}
+.imgbox .video ._img {
+	display: block;
+	position: absolute;
+	height: 64rpx;
+	width: 64rpx;
+	left: 38rpx;
+	top: 38rpx;
+}
+.imgbox .videobox {
+	position: relative;
+	height: 140rpx;
+	width: 140rpx;
+}
+.imgbox .videobox .close {
+	position: absolute;
+	color: #fff;
+	background: #f00;
+	border-radius: 100%;
+	height: 40rpx;
+	width: 40rpx;
+	top: -10rpx;
+	right: -10rpx;
+	line-height: 35rpx;
+	font-weight: bold;
+	text-align: center;
+	z-index: 99;
+}
+.imgbox .addimg {
+	height: 140rpx;
+	width: 140rpx;
+	border: 2rpx dashed #8d8d8d;
+	text-align: center;
+	padding-top: 40rpx;
+}
+.imgbox .addimg ._img {
+	width: 60rpx;
+	height: 60rpx;
+}
+.send {
+	background: #049588;
+	border-radius: 50rpx;
+	color: #fff;
+	text-align: center;
+	font-size: 40rpx;
+	margin: 40rpx auto;
+	width: 420rpx;
+	height: 100rpx;
+	line-height: 100rpx;
+}
+

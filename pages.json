@@ -28,7 +28,11 @@
 			"path": "pages/addorder/addorder",
 			"style": {}
 		}
-	],
+	    ,{
+            "path" : "pages/addvideo/addvideo",
+            "style" : {}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "核桃妹的妈妈",

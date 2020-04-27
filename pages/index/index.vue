@@ -15,7 +15,7 @@
 				</navigator>
 			</li>
 			<li>
-				<navigator url="/pages/video/video">
+				<navigator url="/pages/addvideo/addvideo">
 					<div><img src="/static/images/5.png" mode='aspectFit' /></div>
 					<p>发布实拍</p>
 				</navigator>

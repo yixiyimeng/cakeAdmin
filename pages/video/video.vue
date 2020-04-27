@@ -33,7 +33,7 @@
 							</div>
 							<div class="tip flex flex-pack-justify">
 								<span class="time">{{ item.create_time }}</span>
-								<span class="red" @tap="delvideo">删除</span>
+								<span class="red" @tap="delvideo(item.id)">删除</span>
 							</div>
 						</div>
 					</li>
@@ -132,7 +132,9 @@ export default {
 			if (timer) {
 				clearTimeout(timer);
 			}
+			
 			timer = setTimeout(function() {
+				console.log('播放视频')
 				videoContext.requestFullScreen();
 			}, 100);
 		},
@@ -158,29 +160,30 @@ export default {
 				this.isShowVideo = true;
 			}
 			//this.setData(play);
+		},
+		delvideo(id){
+			let that=this;
+			uni.showModal({
+				title: '删除',
+				content: '确定要删除吗？',
+				success: res => {
+					if (res.confirm) {
+						postajax(api.deletevideo+id).then(da=>{
+							uni.showToast({
+								title:'删除成功',
+								icon:'none'
+							})
+							that.mescroll.resetUpScroll()
+						})
+					}
+				}
+			})
 		}
 	},
 	onReady: function(res) {
 		this.videoContext = wx.createVideoContext('prew_video');
 	},
-	delvideo(id){
-		let that=this;
-		uni.showModal({
-			title: '删除',
-			content: '确定要删除吗？',
-			success: res => {
-				if (res.confirm) {
-					postajax(api.deletevideo+'/'+id).then(da=>{
-						uni.showToast({
-							title:'删除成功',
-							icon:'none'
-						})
-						that.mescroll.resetUpScroll()
-					})
-				}
-			}
-		})
-	}
+	
 };
 </script>
 

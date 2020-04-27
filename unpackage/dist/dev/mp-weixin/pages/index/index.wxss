@@ -39,8 +39,7 @@
 	height: 70px;
 	width: 70px;
 	background: #f7f7f7;
-	-webkit-border-radius: 5px;
-	        border-radius: 5px;
+	border-radius: 5px;
 	margin: 0 auto 8px;
 	padding-top: 25rpx;
 	-webkit-box-sizing: border-box;

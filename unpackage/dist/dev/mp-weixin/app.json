@@ -5,7 +5,8 @@
     "pages/video/video",
     "pages/money/money",
     "pages/order/order",
-    "pages/addorder/addorder"
+    "pages/addorder/addorder",
+    "pages/addvideo/addvideo"
   ],
   "subPackages": [],
   "window": {
@@ -18,5 +19,5 @@
     "mescroll-body": "/components/mescroll-uni/mescroll-body",
     "mescroll-uni": "/components/mescroll-uni/mescroll-uni"
   },
-  "sitemapLocation": "sitemap28.json"
+  "sitemapLocation": "sitemap72.json"
 }

@@ -38,8 +38,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/video/video",
-					"pathName": "pages/video/video",
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
 					"query": "",
 					"scene": null
 				}
